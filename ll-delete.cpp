@@ -41,8 +41,17 @@ void pop_front(Node** head) {
     }
 }
 
-void pop_back() {
-
+void pop_back(Node** head) {
+    if(*head == null) {
+        // means list is empty
+        cout<<"Empty List !"<<"\n";
+        return;
+    } else {
+        Node* temp = *head;
+        *head = (*head)->next;
+        temp->next = null;
+        free(temp);
+    }
 }
 
 void print_list(Node** head) {
@@ -67,8 +76,8 @@ int main() {
     build_list(&head, 8);
     print_list(&head);
 
-    pop_front(&head);
-    pop_front(&head);
+    pop_back(&head);
+    pop_back(&head);
     pop_front(&head);
     print_list(&head);
 }
