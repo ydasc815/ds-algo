@@ -30,20 +30,19 @@ void build_list(Node** head, int d) {
 
 void print_list(Node** head){
 	Node* hptr = *head;
-	while(hptr->next != null) {
+	while(hptr != null) {
 		cout<<hptr->data<<" ";
 		hptr = hptr->next;
 	}
 }
 
 int main() {
-	Node* head = null;
-	build_list(&head, 2);
-	build_list(&head, 1);
-	build_list(&head, 3);
-	build_list(&head, 4);
-	build_list(&head, 5);
-	build_list(&head, 8);
+	Node* head = null; int data;
+	// building a singly linkedlist with user input data [size = 10]
+	for(int i=0; i<10; i++){
+		cin>>data;
+		build_list(&head, data);
+	}
 
 	print_list(&head);
 }
