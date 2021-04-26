@@ -5,31 +5,45 @@ using namespace std;
 class Node {
 public:
 	int data;
-	Node* next;
+	Node* next = null;
+	Node(int d) {
+		this->data = d;
+	}
+	Node() {}
 };
 
-void printList(Node* n){
-	while(n != null) {
-		cout<<n->data<<" ";
-		n = n->next;
+void build_list(Node** head, int d) {
+	if((*head) == null) {
+		// it is head node
+		*head = new Node();
+		(*head)->data = d;
+	} else {
+		Node* newNode = new Node();
+		newNode->data = d;
+		Node* temp = *head;
+		while(temp->next != null) {
+			temp = temp->next;
+		}
+		temp->next = newNode;
 	}
-	cout<<"\n";
+}
+
+void print_list(Node** head){
+	Node* hptr = *head;
+	while(hptr->next != null) {
+		cout<<hptr->data<<" ";
+		hptr = hptr->next;
+	}
 }
 
 int main() {
-	Node* head = new Node();
-	Node* second = new Node();
-	Node* third = new Node();
+	Node* head = null;
+	build_list(&head, 2);
+	build_list(&head, 1);
+	build_list(&head, 3);
+	build_list(&head, 4);
+	build_list(&head, 5);
+	build_list(&head, 8);
 
-	head->data = 1;
-	head->next = second;
-
-	second->data = 2;
-	second->next = third;
-
-	third->data = 3;
-	third->next = null;
-
-	printList(head);
-
+	print_list(&head);
 }
