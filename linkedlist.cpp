@@ -116,6 +116,16 @@ int get_nth_node(Node* head, int n) {
 	else return -1;
 }
 
+int get_nth_node_back(Node* head, int n) {
+	// get length of list ** n is nth node from back
+	int size = get_size_rec(&head);
+	if(n > size) return -1; // nth node from back doesn't exist in the list
+	int fi = size - n; // forward index
+	Node* temp = head;
+	while(fi--) temp = temp->next;
+	return temp->data;
+}
+
 int main() {
 	Node* head = null;
 	build_list(&head, 1);
@@ -128,8 +138,6 @@ int main() {
 	build_list(&head, 4);
 	build_list(&head, 10);
 
-	print_list(&head);
-	cout<<"element at 3rd index = "<<get_nth_node(head, 3)<<"\n";
-	cout<<"element at 9th index = "<<get_nth_node(head, 9)<<"\n";
-	cout<<"element at 8th index = "<<get_nth_node(head, 8)<<"\n";
+	cout<<"7th node from back = "<<get_nth_node_back(head, 7)<<"\n";
+	cout<<"10th node from back = "<<get_nth_node_back(head, 10)<<"\n";
 }
