@@ -92,6 +92,15 @@ void print_list(Node** head){
 	cout<<"\n";
 }
 
+bool search(Node* head, int x) {
+	Node* temp = head;
+	while(temp != null) {
+		if(temp->data == x) return true;
+		temp = temp->next;
+	}
+	return false;
+}
+
 int main() {
 	Node* head = null;
 	build_list(&head, 1);
@@ -105,5 +114,9 @@ int main() {
 	build_list(&head, 10);
 
 	print_list(&head);
-	cout<<"size of given list = "<<get_size_rec(&head)<<"\n";
+	if(search(head, 5)) cout<<"5; found in list"<<"\n";
+	else cout<<"5; not found in list"<<"\n";
+
+	if(search(head, 17)) cout<<"17; found in list"<<"\n";
+	else cout<<"17; not found in list"<<"\n";
 }
