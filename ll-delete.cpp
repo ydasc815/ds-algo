@@ -54,6 +54,16 @@ void pop_back(Node** head) {
     }
 }
 
+void delete_list(Node** head) {
+    Node* temp = *head, *temp1 = temp;
+    while(temp != null) {
+        temp = temp->next;
+        free(temp1);
+        temp1 = temp;
+    }
+    *head = null;
+}
+
 void print_list(Node** head) {
     Node* temp = *head;
     while(temp != null) {
@@ -76,8 +86,6 @@ int main() {
     build_list(&head, 8);
     print_list(&head);
 
-    pop_back(&head);
-    pop_back(&head);
-    pop_front(&head);
+    delete_list(&head);
     print_list(&head);
 }
