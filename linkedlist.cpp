@@ -107,6 +107,15 @@ bool search_rec(Node* head, int x) {
 	else return (head->data == x) ? true : search_rec(head->next, x);
 }
 
+int get_nth_node(Node* head, int n) {
+	Node* temp = head; int index = -1;
+	while(temp != null && ++index != n) {
+		temp = temp->next;
+	}
+	if(index == n) return temp->data;
+	else return -1;
+}
+
 int main() {
 	Node* head = null;
 	build_list(&head, 1);
@@ -120,9 +129,7 @@ int main() {
 	build_list(&head, 10);
 
 	print_list(&head);
-	if(search_rec(head, 5)) cout<<"5; found in list"<<"\n";
-	else cout<<"5; not found in list"<<"\n";
-
-	if(search_rec(head, 17)) cout<<"17; found in list"<<"\n";
-	else cout<<"17; not found in list"<<"\n";
+	cout<<"element at 3rd index = "<<get_nth_node(head, 3)<<"\n";
+	cout<<"element at 9th index = "<<get_nth_node(head, 9)<<"\n";
+	cout<<"element at 8th index = "<<get_nth_node(head, 8)<<"\n";
 }
