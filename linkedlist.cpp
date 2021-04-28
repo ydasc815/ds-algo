@@ -101,6 +101,11 @@ bool search(Node* head, int x) {
 	return false;
 }
 
+bool search_rec(Node* head, int x) {
+	if(head->next == null) return (head->data == x);
+	else return (head->data == x) ? true : search_rec(head->next, x);
+}
+
 int main() {
 	Node* head = null;
 	build_list(&head, 1);
@@ -114,9 +119,9 @@ int main() {
 	build_list(&head, 10);
 
 	print_list(&head);
-	if(search(head, 5)) cout<<"5; found in list"<<"\n";
+	if(search_rec(head, 5)) cout<<"5; found in list"<<"\n";
 	else cout<<"5; not found in list"<<"\n";
 
-	if(search(head, 17)) cout<<"17; found in list"<<"\n";
+	if(search_rec(head, 17)) cout<<"17; found in list"<<"\n";
 	else cout<<"17; not found in list"<<"\n";
 }
