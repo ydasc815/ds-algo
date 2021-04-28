@@ -89,7 +89,6 @@ void print_list(Node** head){
 
 int main() {
 	Node* head = null;
-	// building a singly linkedlist with user input data [size = 10]
 	build_list(&head, 1);
 	build_list(&head, 3);
 	build_list(&head, 2);
