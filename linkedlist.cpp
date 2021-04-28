@@ -102,6 +102,7 @@ bool search(Node* head, int x) {
 }
 
 bool search_rec(Node* head, int x) {
+	if(head == null) return false;
 	if(head->next == null) return (head->data == x);
 	else return (head->data == x) ? true : search_rec(head->next, x);
 }
