@@ -78,6 +78,11 @@ int get_size(Node** head) {
 	return size;
 }
 
+int get_size_rec(Node** head) {
+	if((*head)->next == null) return 1;
+	else return 1 + get_size_rec(&((*head)->next));
+}
+
 void print_list(Node** head){
 	Node* hptr = *head;
 	while(hptr != null) {
@@ -97,7 +102,8 @@ int main() {
 	build_list(&head, 7);
 	build_list(&head, 6);
 	build_list(&head, 4);
+	build_list(&head, 10);
 
 	print_list(&head);
-	cout<<"size of given list = "<<get_size(&head)<<"\n";
+	cout<<"size of given list = "<<get_size_rec(&head)<<"\n";
 }
