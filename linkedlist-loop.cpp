@@ -30,10 +30,16 @@ void build_list(Node** head, int d) {
 	}
 }
 
+int get_size_rec(Node** head) {
+	if((*head)->next == null) return 1;
+	else return 1 + get_size_rec(&((*head)->next));
+}
+
 bool detect_loop(Node* head){
 	Node* hptr = head;
     map<Node*, int> m;
-	while(hptr != null) {
+	int size = 5;
+	while(size--) {
         m[hptr->curr_ptr]++;
 		hptr = hptr->next;
 	}
