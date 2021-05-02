@@ -75,76 +75,76 @@
 //     } else cout<<"not a palindrome";
 // }
 
+// // swap even odd in sll
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
 
-#include<bits/stdc++.h>
-#define null NULL
-using namespace std;
+// class Node {
+// public:
+//     int data;
+//     Node* next;
+//     Node(int d) {
+//         this->data = d;
+//     }
+//     Node() {}
+// };
 
-class Node {
-public:
-    int data;
-    Node* next;
-    Node(int d) {
-        this->data = d;
-    }
-    Node() {}
-};
+// void build_list(Node** head, int d) {
+//     if(*head == null) {
+//         *head = new Node();
+//         (*head)->data = d;
+//         (*head)->next = null;
+//     } else {
+//         Node* newNode = new Node();
+//         Node* temp = *head;
+//         newNode->next = null;
+//         newNode->data = d;
+//         while(temp->next != null) {
+//             temp = temp->next;
+//         }
+//         temp->next = newNode;
+//     }
+// }
 
-void build_list(Node** head, int d) {
-    if(*head == null) {
-        *head = new Node();
-        (*head)->data = d;
-        (*head)->next = null;
-    } else {
-        Node* newNode = new Node();
-        Node* temp = *head;
-        newNode->next = null;
-        newNode->data = d;
-        while(temp->next != null) {
-            temp = temp->next;
-        }
-        temp->next = newNode;
-    }
-}
+// void swap_even_odd(Node* head) {
+//     Node* temp = head, *temp1;
+//     while(temp != null) {
+//         if(temp->data % 2 != 0) {
+//             temp1 = temp->next;
+//             while(temp1->data % 2 != 0) {
+//                 temp1 = temp1 -> next;
+//                 if(temp1 == null) return;
+//             }
+//             swap(temp->data, temp1->data);
+//         } else temp = temp->next;
+//     }
+// }
 
-void swap_even_odd(Node* head) {
-    Node* temp = head, *temp1;
-    while(temp != null) {
-        if(temp->data % 2 != 0) {
-            temp1 = temp->next;
-            while(temp1->data % 2 != 0) {
-                temp1 = temp1 -> next;
-                if(temp1 == null) return;
-            }
-            swap(temp->data, temp1->data);
-        } else temp = temp->next;
-    }
-}
+// void print_list(Node* head) {
+//     Node* temp = head;
+//     while(temp != null) {
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+// }
 
-void print_list(Node* head) {
-    Node* temp = head;
-    while(temp != null) {
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<"\n";
-}
+// int main() {
+//     // always initialize empty list (= null)
+//     Node* head = null;
+//     build_list(&head, 17);
+//     build_list(&head, 15);
+//     build_list(&head, 8);
+//     build_list(&head, 12);
+//     build_list(&head, 10);
+//     build_list(&head, 5);
+//     build_list(&head, 4);
+//     build_list(&head, 1);
+//     build_list(&head, 7);
+//     build_list(&head, 6);
 
-int main() {
-    // always initialize empty list (= null)
-    Node* head = null;
-    build_list(&head, 17);
-    build_list(&head, 15);
-    build_list(&head, 8);
-    build_list(&head, 12);
-    build_list(&head, 10);
-    build_list(&head, 5);
-    build_list(&head, 4);
-    build_list(&head, 1);
-    build_list(&head, 7);
-    build_list(&head, 6);
+//     swap_even_odd(head);
+//     print_list(head);
 
-    swap_even_odd(head);
-    print_list(head);
-
-}
+// }
