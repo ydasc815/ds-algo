@@ -201,19 +201,35 @@ void remove_duplicates(Node* head) {
         } else temp = temp->next;
     }
 }
-
+ 
+void remove_duplicates_unsorted(Node* head) {
+    map<int, int> m;
+    Node* temp = head->next, *temp1 = head;
+    m[temp->data]++;
+    while(temp != null) {
+        m[temp->data]++;
+        if(m[temp->data] > 1) {
+            m[temp->data]--;
+            Node* delTemp = temp;
+            temp1->next = delTemp->next;
+            delTemp->next = null;
+            delete(delTemp);
+        }
+        temp = temp->next;
+        temp1 = temp1->next;
+    }
+}
 int main() {
     // always initialize empty list (= null)
     Node* head = null;
+    build_list(&head, 12);
     build_list(&head, 11);
-    build_list(&head, 11);
-    build_list(&head, 11);
+    build_list(&head, 12);
     build_list(&head, 21);
+    build_list(&head, 41);
     build_list(&head, 43);
-    build_list(&head, 43);
-    build_list(&head, 60);
-    build_list(&head, 60);
-    remove_duplicates(head);
+    build_list(&head, 21);
+    remove_duplicates_unsorted(head);
 
     print_list(head);
 
