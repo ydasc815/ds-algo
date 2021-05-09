@@ -22,21 +22,35 @@ void inorder(Node* node) {
     inorder(node->right);
 }
 
-void preorder(Node* node) {
+void levelorder(Node* node) {
     if(node == null) return;
 
-    cout<<node->data<<" ";
-    preorder(node->left);
-    preorder(node->right);
+    queue<Node*> q;
+    q.push(node);
+    while(!q.empty()) {
+        Node* temp = q.front();
+        cout<<temp->data<<" ";
+        if(temp->left != null) q.push(temp->left);
+        if(temp->right != null) q.push(temp->right);
+        q.pop();
+    }
 }
 
-void postorder(Node* node) {
-    if(node == null) return;
+// void preorder(Node* node) {
+//     if(node == null) return;
 
-    postorder(node->left);
-    postorder(node->right);
-    cout<<node->data<<" ";
-}
+//     cout<<node->data<<" ";
+//     preorder(node->left);
+//     preorder(node->right);
+// }
+
+// void postorder(Node* node) {
+//     if(node == null) return;
+
+//     postorder(node->left);
+//     postorder(node->right);
+//     cout<<node->data<<" ";
+// }
 
 int main() {
     Node* root = new Node(2);
@@ -47,15 +61,18 @@ int main() {
     root->right->left = new Node(6);
     root->right->right = new Node(9);
 
-    // printing inorder traversal of binary tree
-    inorder(root);
-    cout<<"\n";
+    // // printing inorder traversal of binary tree
+    // inorder(root);
+    // cout<<"\n";
 
-    // printing preorder traversal of binary tree
-    preorder(root);
-    cout<<"\n";
+    // // printing preorder traversal of binary tree
+    // preorder(root);
+    // cout<<"\n";
 
-    // printing postorder traversal of binary tree
-    postorder(root);
-    cout<<"\n";
+    // // printing postorder traversal of binary tree
+    // postorder(root);
+    // cout<<"\n";
+
+    // level order traversal 
+    levelorder(root);
 }
