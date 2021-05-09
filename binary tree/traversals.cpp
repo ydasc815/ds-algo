@@ -36,21 +36,48 @@ void levelorder(Node* node) {
     }
 }
 
-// void preorder(Node* node) {
-//     if(node == null) return;
+void insert_levelorder(Node* node, int data) {
+    if(node == null){
+        // root node not exist
+        node = new Node(data);
+        return;
+    }
 
-//     cout<<node->data<<" ";
-//     preorder(node->left);
-//     preorder(node->right);
-// }
+    queue<Node*> q;
+    q.push(node);
+    while(!q.empty()) {
+        Node* temp = q.front();
+        q.pop();
+        if(temp->left != null) {
+            q.push(temp->left);
+        } else {
+            temp->left = new Node(data);
+            return;
+        }
+        if(temp->right != null) {
+            q.push(temp->right);
+        } else {
+            temp->right = new Node(data);
+            return;
+        }
+    }
+}
 
-// void postorder(Node* node) {
-//     if(node == null) return;
+void preorder(Node* node) {
+    if(node == null) return;
 
-//     postorder(node->left);
-//     postorder(node->right);
-//     cout<<node->data<<" ";
-// }
+    cout<<node->data<<" ";
+    preorder(node->left);
+    preorder(node->right);
+}
+
+void postorder(Node* node) {
+    if(node == null) return;
+
+    postorder(node->left);
+    postorder(node->right);
+    cout<<node->data<<" ";
+}
 
 int main() {
     Node* root = new Node(2);
@@ -75,4 +102,11 @@ int main() {
 
     // level order traversal 
     levelorder(root);
+    cout<<"\n";
+    insert_levelorder(root, 10);
+    // level order after insertion
+    levelorder(root);
+    cout<<"\n";
+    // inorder after insertion
+    inorder(root);
 }
