@@ -8,4 +8,5 @@ int main() {
         if((a*b - a) % a != 0) cout<<"NO"<<"\n";
         else cout<<"YES"<<"\n"<<a*b - a<<" "<<a<<" "<<a*b<<"\n";
     }
+    // cf problem test
 }
