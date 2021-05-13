@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #define null NULL
+#pragma gcc optimize -O3
 using namespace std;
 
 class Node {
