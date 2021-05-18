@@ -33,15 +33,19 @@ BST* bst_insert(BST *root, int data) {
 }
 
 int main() {
-    BST* root = new BST(4);
-    root->left = new BST(2);
-    root->right = new BST(5);
-    root->left->left = new BST(0);
-    root->left->right = new BST(3);
+    BST* root = null;
 
     inorder(root);
     cout<<"\n";
 
-    inorder(bst_insert(root, 1));
+    root = bst_insert(root, 1);
+    root = bst_insert(root, 3);
+    root = bst_insert(root, 5);
+    root = bst_insert(root, 2);
+    root = bst_insert(root, 0);
+    root = bst_insert(root, -1);
+    root = bst_insert(root, 6);
+    root = bst_insert(root, 8);
 
+    inorder(root);
 }
