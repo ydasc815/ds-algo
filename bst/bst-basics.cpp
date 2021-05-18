@@ -32,6 +32,18 @@ BST* bst_insert(BST *root, int data) {
     return root;
 }
 
+bool search_key(BST* root, int key) {
+    if(root == null) return false;
+    if(root->data == key) return true;
+    
+    if(key < root->data) {
+        return search_key(root->left, key);
+    } else if(key > root->data) {
+        return search_key(root->right, key);
+    }
+    return false;
+}
+
 int main() {
     BST* root = null;
 
@@ -48,4 +60,6 @@ int main() {
     root = bst_insert(root, 8);
 
     inorder(root);
+    cout<<"\n";
+    cout<<search_key(root, 1);
 }
