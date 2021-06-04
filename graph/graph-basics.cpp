@@ -44,6 +44,27 @@ vector<int> bfs(int V, vector<int> adj[]) {
     return res;
 }
 
+void dfsRec(int n, vector<int>& vis, vector<int> adj[], vector<int>& res) {
+    res.push_back(n);
+    vis[n] = 1;
+    for(auto i:adj[n]){
+        if(!vis[i]){
+            dfsRec(i, vis, adj, res);
+        }
+    }
+}
+
+vector<int> dfs(int v, vector<int> adj[]){
+    vector<int> res;
+    vector<int> vis(v+1, 0);
+    for(int i=1; i<=v; i++){
+        if(!vis[i]){
+            dfsRec(i, vis, adj, res);
+        }
+    }
+    return res;
+}
+
 int main(){
     int V = 7;
     vector<int> adj[V+1];
@@ -59,7 +80,11 @@ int main(){
     adj[6].push_back(4);
     adj[7].push_back(2);
     adj[7].push_back(5);
-    vector<int> trv = bfs(V, adj);
+    // vector<int> trv = bfs(V, adj);
+    // for(int i : trv){
+    //     cout<<i<<" ";
+    // }
+    vector<int> trv = dfs(V, adj);
     for(int i : trv){
         cout<<i<<" ";
     }
