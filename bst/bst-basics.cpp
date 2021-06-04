@@ -45,21 +45,40 @@ bool search_key(BST* root, int key) {
 }
 
 int main() {
-    BST* root = null;
+//     BST* root = null;
 
-    inorder(root);
-    cout<<"\n";
+//     inorder(root);
+//     cout<<"\n";
 
-    root = bst_insert(root, 1);
-    root = bst_insert(root, 3);
-    root = bst_insert(root, 5);
-    root = bst_insert(root, 2);
-    root = bst_insert(root, 0);
-    root = bst_insert(root, -1);
-    root = bst_insert(root, 6);
-    root = bst_insert(root, 8);
+//     root = bst_insert(root, 1);
+//     root = bst_insert(root, 3);
+//     root = bst_insert(root, 5);
+//     root = bst_insert(root, 2);
+//     root = bst_insert(root, 0);
+//     root = bst_insert(root, -1);
+//     root = bst_insert(root, 6);
+//     root = bst_insert(root, 8);
 
-    inorder(root);
-    cout<<"\n";
-    cout<<search_key(root, 1);
+//     inorder(root);
+//     cout<<"\n";
+//     cout<<search_key(root, 1);
+    // vector<int> v;
+    // v.push_back(2);
+    // v.push_back(-3);
+    // v.push_back(9);
+    // v.push_back(4);
+    // v.push_back(6);
+    // v.push_back(7);
+    // v.push_back(3);
+    // v.push_back(5);
+    // vector<int>::iterator vptr = v.end();
+    // for(auto it=v.end()-1; it!=v.begin(); it--){
+    //     cout<<*it<<" ";
+    // }
+    vector<int> v;
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    reverse(v.begin(), v.end());
+    for(int i:v) cout<<i<<" ";
 }
