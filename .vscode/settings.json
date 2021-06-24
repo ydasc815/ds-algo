@@ -26,6 +26,7 @@
         "valarray": "cpp",
         "variant": "cpp",
         "chrono": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "iosfwd": "cpp"
     }
 }

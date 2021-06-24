@@ -1,5 +1,6 @@
 // Aditya @ydasc815
 #include<bits/stdc++.h>
+#define int unsigned long long
 using namespace std;
 
 bool compute(vector<int>&, int);
@@ -14,14 +15,32 @@ signed main() {
 }
 
 void solve() {
-    int t, n, k; cin>>t;
+    string filename("in01.txt");
+    int num;
+    ifstream input_file(filename);
+    if(!input_file.is_open()) {
+        cerr<<"Can't open file";
+        return;
+    }
+    input_file >> num;
+    int t, n, k; t = num;
+    ofstream output_file;
+    output_file.open("out01.txt");
     while(t--){
-        cin>>n>>k;
+        // cin>>n>>k;
+        input_file >> num; n = num;
+        input_file >> num; k = num;
         ans = false;
         vector<int> v(n, 0);
-        for(int i=0; i<n; i++) cin>>v[i];
-        cout<<compute(v, k)<<"\n";
+        for(int i=0; i<n; i++) {
+            input_file >> num;
+            v[i] = num;
+        }
+        output_file<<compute(v, k)<<"\n";
+        
     }
+    output_file.close();
+    input_file.close();
 }
 
 bool compute(vector<int>& arr, int start) {
